@@ -1,6 +1,6 @@
 import { ToolSchema } from "@modelcontextprotocol/sdk/types.js";
 
-export const YouTubeToMarkdownTool = ToolSchema.parse({
+export let YouTubeToMarkdownTool = ToolSchema.parse({
   name: "youtube-to-markdown",
   description:
     "Convert a YouTube video to markdown, including transcript if available",
@@ -16,7 +16,7 @@ export const YouTubeToMarkdownTool = ToolSchema.parse({
   },
 });
 
-export const PDFToMarkdownTool = ToolSchema.parse({
+export let PDFToMarkdownTool = ToolSchema.parse({
   name: "pdf-to-markdown",
   description: "Convert a PDF file to markdown",
   inputSchema: {
@@ -31,7 +31,7 @@ export const PDFToMarkdownTool = ToolSchema.parse({
   },
 });
 
-export const BingSearchResultToMarkdownTool = ToolSchema.parse({
+export let BingSearchResultToMarkdownTool = ToolSchema.parse({
   name: "bing-search-to-markdown",
   description: "Convert a Bing search results page to markdown",
   inputSchema: {
@@ -46,7 +46,7 @@ export const BingSearchResultToMarkdownTool = ToolSchema.parse({
   },
 });
 
-export const WebpageToMarkdownTool = ToolSchema.parse({
+export let WebpageToMarkdownTool = ToolSchema.parse({
   name: "webpage-to-markdown",
   description: "Convert a webpage to markdown",
   inputSchema: {
@@ -61,7 +61,7 @@ export const WebpageToMarkdownTool = ToolSchema.parse({
   },
 });
 
-export const ImageToMarkdownTool = ToolSchema.parse({
+export let ImageToMarkdownTool = ToolSchema.parse({
   name: "image-to-markdown",
   description:
     "Convert an image to markdown, including metadata and description",
@@ -77,7 +77,7 @@ export const ImageToMarkdownTool = ToolSchema.parse({
   },
 });
 
-export const AudioToMarkdownTool = ToolSchema.parse({
+export let AudioToMarkdownTool = ToolSchema.parse({
   name: "audio-to-markdown",
   description:
     "Convert an audio file to markdown, including transcription if possible",
@@ -93,7 +93,7 @@ export const AudioToMarkdownTool = ToolSchema.parse({
   },
 });
 
-export const DocxToMarkdownTool = ToolSchema.parse({
+export let DocxToMarkdownTool = ToolSchema.parse({
   name: "docx-to-markdown",
   description: "Convert a DOCX file to markdown",
   inputSchema: {
@@ -108,7 +108,7 @@ export const DocxToMarkdownTool = ToolSchema.parse({
   },
 });
 
-export const XlsxToMarkdownTool = ToolSchema.parse({
+export let XlsxToMarkdownTool = ToolSchema.parse({
   name: "xlsx-to-markdown",
   description: "Convert an XLSX file to markdown",
   inputSchema: {
@@ -123,7 +123,7 @@ export const XlsxToMarkdownTool = ToolSchema.parse({
   },
 });
 
-export const PptxToMarkdownTool = ToolSchema.parse({
+export let PptxToMarkdownTool = ToolSchema.parse({
   name: "pptx-to-markdown",
   description: "Convert a PPTX file to markdown",
   inputSchema: {
@@ -138,7 +138,7 @@ export const PptxToMarkdownTool = ToolSchema.parse({
   },
 });
 
-export const GetMarkdownFileTool = ToolSchema.parse({
+export let GetMarkdownFileTool = ToolSchema.parse({
   name: "get-markdown-file",
   description: "Get a markdown file by absolute file path",
   inputSchema: {
