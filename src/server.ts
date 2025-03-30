@@ -8,7 +8,7 @@ import { Markdownify } from "./Markdownify.js";
 import * as tools from "./tools.js";
 import { CallToolRequest } from "@modelcontextprotocol/sdk/types.js";
 
-var RequestPayloadSchema = z.object({
+const RequestPayloadSchema = z.object({
   filepath: z.string().optional(),
   url: z.string().optional(),
   projectRoot: z.string().optional(),
@@ -16,7 +16,7 @@ var RequestPayloadSchema = z.object({
 });
 
 export function createServer() {
-  var server = new Server(
+  const server = new Server(
     {
       name: "mcp-markdownify-server",
       version: "0.1.0",
@@ -37,9 +37,9 @@ export function createServer() {
   server.setRequestHandler(
     CallToolRequestSchema,
     async (request: CallToolRequest) => {
-      var { name, arguments: args } = request.params;
+      const { name, arguments: args } = request.params;
 
-      var validatedArgs = RequestPayloadSchema.parse(args);
+      const validatedArgs = RequestPayloadSchema.parse(args);
 
       try {
         let result;
