@@ -4,8 +4,8 @@ import { createServer } from "./server.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 
 async function main() {
-  const transport = new StdioServerTransport();
-  const server = createServer();
+  let transport = new StdioServerTransport();
+  let server = createServer();
   await server.connect(transport);
 }
 
