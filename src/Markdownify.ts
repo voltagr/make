@@ -5,10 +5,10 @@ import fs from "fs";
 import os from "os";
 import { fileURLToPath } from "url";
 
-var execAsync = promisify(exec);
+const execAsync = promisify(exec);
 
-var __filename = fileURLToPath(import.meta.url);
-var __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export type MarkdownResult = {
   path: string;
@@ -21,14 +21,14 @@ export class Markdownify {
     projectRoot: string,
     uvPath: string,
   ): Promise<string> {
-    var venvPath = path.join(projectRoot, ".venv");
-    var markitdownPath = path.join(venvPath, "bin", "markitdown");
+    const venvPath = path.join(projectRoot, ".venv");
+    const markitdownPath = path.join(venvPath, "bin", "markitdown");
 
     if (!fs.existsSync(markitdownPath)) {
       throw new Error("markitdown executable not found");
     }
 
-    var { stdout, stderr } = await execAsync(
+    const { stdout, stderr } = await execAsync(
       `${uvPath} run ${markitdownPath} "${filePath}"`,
     );
 
@@ -40,7 +40,7 @@ export class Markdownify {
   }
 
   private static async saveToTempFile(content: string): Promise<string> {
-    var tempOutputPath = path.join(
+    const tempOutputPath = path.join(
       os.tmpdir(),
       `markdown_output_${Date.now()}.md`,
     );
@@ -64,8 +64,8 @@ export class Markdownify {
       let isTemporary = false;
 
       if (url) {
-        var response = await fetch(url);
-        var content = await response.text();
+        const response = await fetch(url);
+        const content = await response.text();
         inputPath = await this.saveToTempFile(content);
         isTemporary = true;
       } else if (filePath) {
@@ -74,8 +74,8 @@ export class Markdownify {
         throw new Error("Either filePath or url must be provided");
       }
 
-      var text = await this._markitdown(inputPath, projectRoot, uvPath);
-      var outputPath = await this.saveToTempFile(text);
+      const text = await this._markitdown(inputPath, projectRoot, uvPath);
+      const outputPath = await this.saveToTempFile(text);
 
       if (isTemporary) {
         fs.unlinkSync(inputPath);
@@ -100,7 +100,7 @@ export class Markdownify {
       throw new Error("File does not exist");
     }
 
-    var text = await fs.promises.readFile(filePath, "utf-8");
+    const text = await fs.promises.readFile(filePath, "utf-8");
 
     return {
       path: filePath,
