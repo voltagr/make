@@ -1,6 +1,6 @@
 import { exec } from "child_process";
 import { promisify } from "util";
-let execAsync = promisify(exec);
+const execAsync = promisify(exec);
 
 export default class UVX {
   uvxPath: string;
@@ -14,7 +14,7 @@ export default class UVX {
   }
 
   static async setup() {
-    // let { stdout: uvxPath, stderr } = await execAsync("which uvx", {
+    // const { stdout: uvxPath, stderr } = await execAsync("which uvx", {
     //   env: {
     //     ...process.env,
     //   },
